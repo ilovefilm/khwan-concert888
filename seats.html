@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เลือกที่นั่ง | ขวานคอนเสิร์ต Khwan Concert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a class="logo" href="index.html">
+      <div class="logo-icon">🎸</div>
+      <span class="logo-text">ขวานคอนเสิร์ต</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-btn" href="index.html">หน้าหลัก</a>
+      <a class="nav-btn" href="tickets.html">บัตรของฉัน</a>
+      <a class="nav-btn" href="organizer.html">ผู้จัดงาน</a>
+      <a class="nav-btn" href="gate.html">สแกนบัตร</a>
+      <a class="nav-btn" id="authNavBtn" href="login.html">เข้าสู่ระบบ</a>
+      <div class="user-badge hidden" id="userBadge">
+        <span>👤</span>
+        <span id="userName">ผู้ใช้</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== SEAT MAP PAGE ========== -->
+  <div class="page active" id="page-seats">
+    <div class="container">
+      <a class="back-btn" href="detail.html">← กลับหน้ารายละเอียด</a>
+      <div class="seat-page-header">
+        <div>
+          <h2 id="seatConcertTitle">เลือกที่นั่ง</h2>
+          <p style="color:var(--text-secondary);font-size:0.9rem;" id="seatConcertDate"></p>
+        </div>
+        <div class="timer-box" id="holdTimer">⏱️ เหลือเวลา: <span id="timerValue">15:00</span></div>
+      </div>
+      <div class="seat-layout">
+        <div class="seat-map-container">
+          <div class="stage">STAGE</div>
+          <div id="seatMap"></div>
+          <div class="legend">
+            <div class="legend-item"><div class="legend-box" style="background:#4c1d95"></div> ว่าง</div>
+            <div class="legend-item"><div class="legend-box" style="background:#7c3aed"></div> VIP ว่าง</div>
+            <div class="legend-item"><div class="legend-box" style="background:#34d399"></div> ที่คุณเลือก</div>
+            <div class="legend-item"><div class="legend-box" style="background:#fbbf24"></div> กำลังจอง</div>
+            <div class="legend-item"><div class="legend-box" style="background:#374151"></div> ขายแล้ว</div>
+          </div>
+        </div>
+        <div class="summary-panel">
+          <h3>📋 สรุปรายการ</h3>
+          <div class="selected-list" id="selectedList">
+            <div class="empty-seats">ยังไม่ได้เลือกที่นั่ง<br>คลิกที่นั่งว่างเพื่อเลือก</div>
+          </div>
+          <div class="summary-total">
+            <span>รวมทั้งหมด</span>
+            <span id="totalPrice">฿0</span>
+          </div>
+          <button class="btn btn-primary" style="width:100%;margin-top:1rem;" id="btnCheckout" disabled onclick="goToCheckout()">
+            ดำเนินการชำระเงิน
+          </button>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.75rem;text-align:center;">
+            จำกัดสูงสุด 4 ที่นั่งต่อรายการ
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <footer>
+    © 2026 ขวานคอนเสิร์ต (Khwan Concert) · ระบบจองบัตรคอนเสิร์ต · โปรเจกต์กลุ่มขวาน
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/seats.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บัตรของฉัน | ขวานคอนเสิร์ต Khwan Concert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a class="logo" href="index.html">
+      <div class="logo-icon">🎸</div>
+      <span class="logo-text">ขวานคอนเสิร์ต</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-btn" href="index.html">หน้าหลัก</a>
+      <a class="nav-btn active" href="tickets.html">บัตรของฉัน</a>
+      <a class="nav-btn" href="organizer.html">ผู้จัดงาน</a>
+      <a class="nav-btn" href="gate.html">สแกนบัตร</a>
+      <a class="nav-btn" id="authNavBtn" href="login.html">เข้าสู่ระบบ</a>
+      <div class="user-badge hidden" id="userBadge">
+        <span>👤</span>
+        <span id="userName">ผู้ใช้</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== MY TICKETS ========== -->
+  <div class="page active" id="page-tickets">
+    <div class="container">
+      <h2 class="section-title">🎫 บัตรของฉัน</h2>
+      <div id="ticketsList">
+        <div class="text-center" style="padding:3rem;color:var(--text-muted);">
+          <div style="font-size:3rem;margin-bottom:1rem;">🎟️</div>
+          <p>ยังไม่มีบัตร<br>ไปเลือกคอนเสิร์ตที่ชอบแล้วจองเลย!</p>
+          <button class="btn btn-primary mt-2" onclick="location.href='index.html'">ดูคอนเสิร์ต</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REFUND MODAL -->
+  <div class="modal-overlay" id="refundModal">
+    <div class="modal">
+      <div style="font-size:3rem;margin-bottom:0.5rem;">↩️</div>
+      <h2>ยืนยันการคืนบัตร</h2>
+      <p id="refundTicketInfo" style="margin-bottom:0.75rem;"></p>
+      <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:1.5rem;">
+        ระบบจะคืนเงินให้ <strong style="color:var(--success);">90%</strong> ของราคาบัตรทันที<br>
+        ที่นั่งจะถูกปล่อยกลับสู่ระบบให้คนอื่นจองได้
+      </p>
+      <div style="display:flex;gap:0.75rem;">
+        <button class="btn btn-secondary" style="flex:1;" onclick="closeRefundModal()">ยกเลิก</button>
+        <button class="btn btn-danger" style="flex:1;" onclick="confirmRefund()">ยืนยันคืนบัตร</button>
+      </div>
+    </div>
+  </div>
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <footer>
+    © 2026 ขวานคอนเสิร์ต (Khwan Concert) · ระบบจองบัตรคอนเสิร์ต · โปรเจกต์กลุ่มขวาน
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/tickets.js"></script>
+</body>
+</html>

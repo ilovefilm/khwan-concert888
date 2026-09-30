@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ชำระเงิน | ขวานคอนเสิร์ต Khwan Concert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a class="logo" href="index.html">
+      <div class="logo-icon">🎸</div>
+      <span class="logo-text">ขวานคอนเสิร์ต</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-btn" href="index.html">หน้าหลัก</a>
+      <a class="nav-btn" href="tickets.html">บัตรของฉัน</a>
+      <a class="nav-btn" href="organizer.html">ผู้จัดงาน</a>
+      <a class="nav-btn" href="gate.html">สแกนบัตร</a>
+      <a class="nav-btn" id="authNavBtn" href="login.html">เข้าสู่ระบบ</a>
+      <div class="user-badge hidden" id="userBadge">
+        <span>👤</span>
+        <span id="userName">ผู้ใช้</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== CHECKOUT PAGE ========== -->
+  <div class="page active" id="page-checkout">
+    <div class="container">
+      <a class="back-btn" href="seats.html">← กลับเลือกที่นั่ง</a>
+      <h2 class="section-title">💳 ชำระเงิน</h2>
+      <div class="checkout-grid">
+        <div class="card-box">
+          <h3>📝 ข้อมูลผู้ซื้อ</h3>
+          <div class="form-group">
+            <label>ชื่อ-นามสกุล</label>
+            <input type="text" id="buyerName" placeholder="ชื่อ นามสกุล" value="สมชาย ใจดี">
+          </div>
+          <div class="form-group">
+            <label>อีเมล</label>
+            <input type="email" id="buyerEmail" placeholder="email@example.com" value="somchai@email.com">
+          </div>
+          <div class="form-group">
+            <label>เบอร์โทรศัพท์</label>
+            <input type="tel" id="buyerPhone" placeholder="08x-xxx-xxxx" value="081-234-5678">
+          </div>
+        </div>
+        <div class="card-box">
+          <h3>💰 วิธีชำระเงิน</h3>
+          <div class="payment-methods">
+            <label class="payment-option selected" onclick="selectPayment(this, 'promptpay')">
+              <input type="radio" name="payment" value="promptpay" checked>
+              <span>📱 พร้อมเพย์ (QR Code)</span>
+            </label>
+            <label class="payment-option" onclick="selectPayment(this, 'credit')">
+              <input type="radio" name="payment" value="credit">
+              <span>💳 บัตรเครดิต / เดบิต</span>
+            </label>
+            <label class="payment-option" onclick="selectPayment(this, 'truewallet')">
+              <input type="radio" name="payment" value="truewallet">
+              <span>🧡 TrueMoney Wallet</span>
+            </label>
+          </div>
+          <div class="qr-mock show" id="qrMock">
+            <div class="qr-box">📱</div>
+            <p style="color:var(--text-secondary);font-size:0.9rem;">สแกน QR เพื่อชำระเงิน</p>
+            <p style="font-size:1.3rem;font-weight:700;color:var(--purple-glow);margin-top:0.5rem;" id="payAmount">฿0</p>
+          </div>
+          <div style="margin-top:1.5rem;">
+            <div class="summary-total" style="border:none;padding:0.5rem 0;">
+              <span>ยอดชำระ</span>
+              <span id="checkoutTotal">฿0</span>
+            </div>
+            <button class="btn btn-success" style="width:100%;margin-top:1rem;" onclick="confirmPayment()">
+              ✅ ยืนยันการชำระเงิน (จำลอง)
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUCCESS MODAL -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal">
+      <div style="font-size:4rem;margin-bottom:0.5rem;">🎉</div>
+      <h2>ชำระเงินสำเร็จ!</h2>
+      <p>บัตรอิเล็กทรอนิกส์ถูกสร้างเรียบร้อยแล้ว<br>คุณสามารถดูบัตรได้ที่เมนู "บัตรของฉัน"</p>
+      <button class="btn btn-primary" onclick="closeSuccessModal()">ดูบัตรของฉัน</button>
+    </div>
+  </div>
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <footer>
+    © 2026 ขวานคอนเสิร์ต (Khwan Concert) · ระบบจองบัตรคอนเสิร์ต · โปรเจกต์กลุ่มขวาน
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>รายละเอียดคอนเสิร์ต | ขวานคอนเสิร์ต Khwan Concert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a class="logo" href="index.html">
+      <div class="logo-icon">🎸</div>
+      <span class="logo-text">ขวานคอนเสิร์ต</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-btn" href="index.html">หน้าหลัก</a>
+      <a class="nav-btn" href="tickets.html">บัตรของฉัน</a>
+      <a class="nav-btn" href="organizer.html">ผู้จัดงาน</a>
+      <a class="nav-btn" href="gate.html">สแกนบัตร</a>
+      <a class="nav-btn" id="authNavBtn" href="login.html">เข้าสู่ระบบ</a>
+      <div class="user-badge hidden" id="userBadge">
+        <span>👤</span>
+        <span id="userName">ผู้ใช้</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== DETAIL PAGE ========== -->
+  <div class="page active" id="page-detail">
+    <div class="container">
+      <a class="back-btn" href="index.html">← กลับหน้ารายการ</a>
+      <div class="detail-header">
+        <div class="detail-poster" id="detailPoster">🎤</div>
+        <div class="detail-info">
+          <h1 id="detailTitle">ชื่อคอนเสิร์ต</h1>
+          <div class="detail-meta" id="detailMeta"></div>
+          <p class="detail-desc" id="detailDesc"></p>
+          <div class="zone-prices" id="detailZones"></div>
+          <button class="btn btn-primary" onclick="goToSeatMap()">🎫 จองบัตรเลย</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <footer>
+    © 2026 ขวานคอนเสิร์ต (Khwan Concert) · ระบบจองบัตรคอนเสิร์ต · โปรเจกต์กลุ่มขวาน
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/detail.js"></script>
+</body>
+</html>

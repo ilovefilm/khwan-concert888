@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>หน้าหลัก | ขวานคอนเสิร์ต Khwan Concert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a class="logo" href="index.html">
+      <div class="logo-icon">🎸</div>
+      <span class="logo-text">ขวานคอนเสิร์ต</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-btn active" href="index.html">หน้าหลัก</a>
+      <a class="nav-btn" href="tickets.html">บัตรของฉัน</a>
+      <a class="nav-btn" href="organizer.html">ผู้จัดงาน</a>
+      <a class="nav-btn" href="gate.html">สแกนบัตร</a>
+      <a class="nav-btn" id="authNavBtn" href="login.html">เข้าสู่ระบบ</a>
+      <div class="user-badge hidden" id="userBadge">
+        <span>👤</span>
+        <span id="userName">ผู้ใช้</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HOME PAGE ========== -->
+  <div class="page active" id="page-home">
+    <div class="hero">
+      <h1>จองบัตรคอนเสิร์ต<br>ง่าย เร็ว ปลอดภัย</h1>
+      <p>ค้นหาคอนเสิร์ตที่คุณชื่นชอบ เลือกที่นั่งแบบ Interactive และรับ E-Ticket พร้อม QR Code ทันที</p>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="ค้นหาศิลปิน หรือชื่อคอนเสิร์ต..." onkeyup="filterConcerts()">
+        <button onclick="filterConcerts()">🔍 ค้นหา</button>
+      </div>
+    </div>
+    <div class="container">
+      <div class="filters">
+        <button class="filter-chip active" data-filter="all" onclick="setFilter('all')">ทั้งหมด</button>
+        <button class="filter-chip" data-filter="rock" onclick="setFilter('rock')">ร็อก</button>
+        <button class="filter-chip" data-filter="pop" onclick="setFilter('pop')">ป๊อป</button>
+        <button class="filter-chip" data-filter="indie" onclick="setFilter('indie')">อินดี้</button>
+        <button class="filter-chip" data-filter="kpop" onclick="setFilter('kpop')">K-Pop</button>
+      </div>
+      <div class="concert-grid" id="concertGrid"></div>
+    </div>
+  </div>
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <footer>
+    © 2026 ขวานคอนเสิร์ต (Khwan Concert) · ระบบจองบัตรคอนเสิร์ต · โปรเจกต์กลุ่มขวาน
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>แดชบอร์ดผู้จัดงาน | ขวานคอนเสิร์ต Khwan Concert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a class="logo" href="index.html">
+      <div class="logo-icon">🎸</div>
+      <span class="logo-text">ขวานคอนเสิร์ต</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-btn" href="index.html">หน้าหลัก</a>
+      <a class="nav-btn" href="tickets.html">บัตรของฉัน</a>
+      <a class="nav-btn active" href="organizer.html">ผู้จัดงาน</a>
+      <a class="nav-btn" href="gate.html">สแกนบัตร</a>
+      <a class="nav-btn" id="authNavBtn" href="login.html">เข้าสู่ระบบ</a>
+      <div class="user-badge hidden" id="userBadge">
+        <span>👤</span>
+        <span id="userName">ผู้ใช้</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== ORGANIZER DASHBOARD ========== -->
+  <div class="page active" id="page-organizer">
+    <div class="container">
+      <h2 class="section-title">📊 แดชบอร์ดผู้จัดงาน</h2>
+      <div class="dash-stats">
+        <div class="stat-card">
+          <div class="value" id="statSold">128</div>
+          <div class="label">บัตรขายแล้ว</div>
+        </div>
+        <div class="stat-card">
+          <div class="value" id="statRevenue">฿456,000</div>
+          <div class="label">รายได้รวม</div>
+        </div>
+        <div class="stat-card">
+          <div class="value" id="statRemain">872</div>
+          <div class="label">บัตรคงเหลือ</div>
+        </div>
+        <div class="stat-card">
+          <div class="value" id="statCheckin">45</div>
+          <div class="label">เช็กอินแล้ว</div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.75rem;">
+        <h3>คอนเสิร์ตของฉัน</h3>
+        <button class="btn btn-primary" onclick="openCreateModal()">+ สร้างคอนเสิร์ตใหม่</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ชื่อคอนเสิร์ต</th>
+              <th>วันที่</th>
+              <th>สถานที่</th>
+              <th>ขายแล้ว</th>
+              <th>สถานะ</th>
+            </tr>
+          </thead>
+          <tbody id="orgTableBody">
+            <tr>
+              <td>ขวานร็อก เฟสติวัล 2026</td>
+              <td>15 ต.ค. 2569</td>
+              <td>ราชมังคลากีฬาสถาน</td>
+              <td>128 / 1000</td>
+              <td><span class="ticket-status status-valid">เปิดขาย</span></td>
+            </tr>
+            <tr>
+              <td>Night Pulse Live</td>
+              <td>22 พ.ย. 2569</td>
+              <td>Impact Arena</td>
+              <td>89 / 500</td>
+              <td><span class="ticket-status status-valid">เปิดขาย</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- CREATE CONCERT MODAL -->
+  <div class="modal-overlay" id="createModal">
+    <div class="modal" style="text-align:left;max-width:480px;">
+      <h2 style="text-align:center;">สร้างคอนเสิร์ตใหม่</h2>
+      <div class="form-group">
+        <label>ชื่อคอนเสิร์ต</label>
+        <input type="text" id="newConcertName" placeholder="เช่น Summer Vibes 2026">
+      </div>
+      <div class="form-group">
+        <label>ศิลปิน</label>
+        <input type="text" id="newConcertArtist" placeholder="ชื่อศิลปิน">
+      </div>
+      <div class="form-group">
+        <label>วันที่จัดแสดง</label>
+        <input type="date" id="newConcertDate">
+      </div>
+      <div class="form-group">
+        <label>สถานที่</label>
+        <input type="text" id="newConcertVenue" placeholder="เช่น ราชมังคลากีฬาสถาน">
+      </div>
+      <div class="form-group">
+        <label>ราคาเริ่มต้น (บาท)</label>
+        <input type="number" id="newConcertPrice" placeholder="1500" value="1500">
+      </div>
+      <div style="display:flex;gap:0.75rem;margin-top:1.25rem;">
+        <button class="btn btn-secondary" style="flex:1;" onclick="closeCreateModal()">ยกเลิก</button>
+        <button class="btn btn-primary" style="flex:1;" onclick="createConcert()">บันทึก</button>
+      </div>
+    </div>
+  </div>
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <footer>
+    © 2026 ขวานคอนเสิร์ต (Khwan Concert) · ระบบจองบัตรคอนเสิร์ต · โปรเจกต์กลุ่มขวาน
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/organizer.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สแกนบัตรเข้างาน | ขวานคอนเสิร์ต Khwan Concert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a class="logo" href="index.html">
+      <div class="logo-icon">🎸</div>
+      <span class="logo-text">ขวานคอนเสิร์ต</span>
+    </a>
+    <div class="nav-links">
+      <a class="nav-btn" href="index.html">หน้าหลัก</a>
+      <a class="nav-btn" href="tickets.html">บัตรของฉัน</a>
+      <a class="nav-btn" href="organizer.html">ผู้จัดงาน</a>
+      <a class="nav-btn active" href="gate.html">สแกนบัตร</a>
+      <a class="nav-btn" id="authNavBtn" href="login.html">เข้าสู่ระบบ</a>
+      <div class="user-badge hidden" id="userBadge">
+        <span>👤</span>
+        <span id="userName">ผู้ใช้</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== GATE SCANNER ========== -->
+  <div class="page active" id="page-gate">
+    <div class="container">
+      <h2 class="section-title text-center">📷 สแกนบัตรเข้างาน</h2>
+      <div class="scanner-box">
+        <div class="scanner-camera" id="scannerCam">📷</div>
+        <p style="color:var(--text-secondary);margin-bottom:1.5rem;">นำกล้องไปสแกน QR Code บน E-Ticket</p>
+        <div class="form-group" style="max-width:320px;margin:0 auto 1rem;">
+          <label>หรือใส่รหัสบัตรด้วยตนเอง</label>
+          <input type="text" id="manualCode" placeholder="เช่น TK-XXXX-XXXX">
+        </div>
+        <button class="btn btn-primary" onclick="simulateScan()">🔍 สแกน / ตรวจสอบ</button>
+        <div class="scan-result" id="scanResult"></div>
+      </div>
+    </div>
+  </div>
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <footer>
+    © 2026 ขวานคอนเสิร์ต (Khwan Concert) · ระบบจองบัตรคอนเสิร์ต · โปรเจกต์กลุ่มขวาน
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/gate.js"></script>
+</body>
+</html>
